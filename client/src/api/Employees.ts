@@ -15,17 +15,17 @@ export const addNewEmployee = async (data: any): Promise<any> => {
     return response;
 }
 
-export const deleteEmployee = async (employeeId: string | number) => {
+export const deleteEmployee = async (employeeId: string | number): Promise<any> => {
     const url = getUrl(`/employee/${ employeeId }`);
     return await client.delete<any>(url);
 }
 
-export const updateEmployee = async (emplyeeId: string | number, data: EmployeeItem) => {
+export const updateEmployee = async (emplyeeId: string | number, data: EmployeeItem): Promise<any>  => {
     const url = getUrl(`/employee/${ emplyeeId }`);
     return await client.put<any>(url, data);
 }
 
-export const createEmployee = async (data: EmployeeItem) => {
+export const createEmployee = async (data: EmployeeItem): Promise<any> => {
     const url = getUrl(`/employee`);
     return await client.post<any, any>(url, data);
 }

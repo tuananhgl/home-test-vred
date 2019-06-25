@@ -3,6 +3,7 @@ import './create-employee.scss';
 import { connect } from 'react-redux';
 import { EmployeeItem } from '../../../models/employee.model';
 import { createNewEmployee } from '../../../store/actions/employeeAction';
+import { AppState } from '../../../store/reducers';
 
 class CreateEmployee extends React.Component<any, any> {
     refs: any;
@@ -59,7 +60,7 @@ class CreateEmployee extends React.Component<any, any> {
     }
 }
 
-const mapStateToProps = (store: any) => {
+const mapStateToProps = (store: AppState) => {
     return {
         employeeState: store.employeeState
     }

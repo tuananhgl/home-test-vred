@@ -12,6 +12,7 @@ import DeleteEmployee from '../delete-employee/delete-emloyee';
 import EditEmployee from '../edit-employee/Edit-Employee';
 import Pagination from '../../../shared/pagination/Pagination';
 import { AppConstant } from '../../../utils/constant';
+import { AppState } from '../../../store/reducers';
 
 class Employee extends React.Component<any, EmployeeComponentState> {
     state: EmployeeComponentState = {
@@ -150,7 +151,7 @@ class Employee extends React.Component<any, EmployeeComponentState> {
     }
 }
 
-const mapStateToProps = (store: any): any => {
+const mapStateToProps = (store: AppState): any => {
     return {
         employeeState: store.employeeState
     }

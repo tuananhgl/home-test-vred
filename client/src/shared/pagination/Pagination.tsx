@@ -59,7 +59,7 @@ export default class Pagination extends React.Component<any, any> {
     renderPaginationTemplate(): any {
         const listPaginations: number = Math.ceil((this.props.total || 0) / this.state.itemPerpage);
         const listItemPaginations: Array<number> = Array.from(Array(listPaginations)).fill(null).map((x: any, i: number) => { return i; });
-        if(listItemPaginations && listItemPaginations.length > 0) {
+        if(this.props.totalPage && this.props.totalPage > 1) {
             return (
                 <nav aria-label="Page navigation" className="nav-pagination">
                     <ul className="pagination justify-content-center">
@@ -76,7 +76,7 @@ export default class Pagination extends React.Component<any, any> {
                                 }) 
                             }
                         <li className={ classnames('page-item', { 'disabled': !this.state.shouldRunNext }) } onClick={ () => this.controlPage(listItemPaginations.length, 'next') }>
-                            <Link to={{ pathname: '/', search: this.state.currentPage > 1 && this.state.currentPage <= listItemPaginations.length ? '?page=' + (this.state.currentPage + 1) : '' }} className="page-link">Next</Link>
+                            <Link to={{ pathname: '/', search: this.state.currentPage >= 1 ? '?page=' + (this.state.currentPage + 1) : '' }} className="page-link">Next</Link>
                         </li>
                     </ul>
                 </nav>
