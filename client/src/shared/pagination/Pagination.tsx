@@ -57,8 +57,7 @@ export default class Pagination extends React.Component<any, any> {
     }
 
     renderPaginationTemplate(): any {
-        const listPaginations: number = Math.ceil((this.props.total || 0) / this.state.itemPerpage);
-        const listItemPaginations: Array<number> = Array.from(Array(listPaginations)).fill(null).map((x: any, i: number) => { return i; });
+        const listItemPaginations: Array<number> = Array.from(Array(this.props.totalPage)).fill(null).map((x: any, i: number) => { return i; });
         if(this.props.totalPage && this.props.totalPage > 1) {
             return (
                 <nav aria-label="Page navigation" className="nav-pagination">
